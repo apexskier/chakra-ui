@@ -13,7 +13,9 @@ const cache = createCache({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <CacheProvider value={cache}>
-      <ChakraProvider theme={extendTheme({})}>
+      <ChakraProvider
+        theme={extendTheme({ config: { nonce: "exampleexample" } })}
+      >
         <App />
       </ChakraProvider>
     </CacheProvider>
