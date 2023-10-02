@@ -469,6 +469,12 @@ importers:
 
   examples/vite-ts:
     dependencies:
+      '@emotion/cache':
+        specifier: ^11.11.0
+        version: 11.11.0
+      '@emotion/react':
+        specifier: ^11.11.1
+        version: 11.11.1(@types/react@18.2.20)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -12027,7 +12033,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.10
       cosmiconfig: 7.0.1
-      resolve: 1.22.1
+      resolve: 1.22.4
 
   /babel-plugin-named-asset-import@0.3.8(@babel/core@7.22.10):
     resolution: {integrity: sha512-WXiAc++qo7XcJ1ZnTYGtLxmBCVbddAml3CEXgWaBzNzLNoxtQ8AiGEFDMOhot9XjTCQbvP5E77Fj9Gk924f00Q==}
