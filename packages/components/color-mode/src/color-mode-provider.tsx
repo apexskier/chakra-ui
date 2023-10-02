@@ -8,6 +8,7 @@ import {
 } from "./color-mode-types"
 import { getColorModeUtils } from "./color-mode.utils"
 import { localStorageManager, StorageManager } from "./storage-manager"
+import { withEmotionCache, EmotionCache } from "@emotion/react"
 
 const noop = () => {}
 
@@ -28,7 +29,10 @@ function getTheme(manager: StorageManager, fallback?: ColorMode) {
  * Provides context for the color mode based on config in `theme`
  * Returns the color mode and function to toggle the color mode
  */
-export function ColorModeProvider(props: ColorModeProviderProps) {
+export const ColorModeProvider = withEmotionCache(function ColorModeProvider(
+  props: ColorModeProviderProps,
+  cache: EmotionCache,
+) {
   const {
     value,
     children,
@@ -36,7 +40,6 @@ export function ColorModeProvider(props: ColorModeProviderProps) {
       useSystemColorMode,
       initialColorMode,
       disableTransitionOnChange,
-      nonce,
     } = {},
     colorModeManager = localStorageManager,
   } = props
@@ -55,9 +58,9 @@ export function ColorModeProvider(props: ColorModeProviderProps) {
     () =>
       getColorModeUtils({
         preventTransition: disableTransitionOnChange,
-        nonce,
+        nonce: cache?.nonce,
       }),
-    [disableTransitionOnChange, nonce],
+    [cache?.nonce, disableTransitionOnChange],
   )
 
   const resolvedValue =
@@ -125,7 +128,7 @@ export function ColorModeProvider(props: ColorModeProviderProps) {
       {children}
     </ColorModeContext.Provider>
   )
-}
+})
 
 ColorModeProvider.displayName = "ColorModeProvider"
 

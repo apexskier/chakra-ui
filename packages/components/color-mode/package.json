@@ -45,15 +45,17 @@
     "url": "https://github.com/chakra-ui/chakra-ui/issues"
   },
   "dependencies": {
-    "@chakra-ui/react-use-safe-layout-effect": "workspace:*"
+    "@chakra-ui/react-use-safe-layout-effect": "workspace:*",
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.1"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
     "@chakra-ui/utils": "workspace:*",
-    "react": "^18.2.0",
-    "clean-package": "2.2.0"
+    "clean-package": "2.2.0",
+    "react": "^18.2.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

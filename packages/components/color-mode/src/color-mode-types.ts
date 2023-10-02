@@ -11,7 +11,6 @@ export interface ColorModeOptions {
   initialColorMode?: ColorModeWithSystem
   useSystemColorMode?: boolean
   disableTransitionOnChange?: boolean
-  nonce?: string // CSP nonce value
 }
 
 export interface ColorModeContextType {
